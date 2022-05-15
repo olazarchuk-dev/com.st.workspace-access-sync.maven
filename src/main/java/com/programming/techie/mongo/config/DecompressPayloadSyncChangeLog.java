@@ -23,7 +23,7 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 @ChangeLog
 @Slf4j
-public class StageSyncChangeLog {
+public class DecompressPayloadSyncChangeLog {
     private ObjectMapper objectMapper = new Jackson2ObjectMapperBuilder().build();
 
     private final AtomicInteger allCounter = new AtomicInteger(0);
@@ -35,9 +35,9 @@ public class StageSyncChangeLog {
     @Value("${app.sync.update-expiration-seconds}")
     public int updateExpirationSeconds = 30;
 
-    @ChangeSet(order = "004", id = "Sync script Payload decompress on workspace.Stage", author = "olazarchuk-dev", runAlways = true)
+    @ChangeSet(order = "001", id = "Sync script Payload decompress on workspace.Stage", author = "olazarchuk-dev", runAlways = true)
     public void syncPayloadDecodeOnStage(MongockTemplate mongockTemplate) {
-        log.info("Start sync script do PayloadDecode to Database");
+        log.info("Start sync Payload decode script to Database");
 
         var query = getStageQuery();
         List<Stage> stages = mongockTemplate.find(query, Stage.class);
@@ -61,7 +61,7 @@ public class StageSyncChangeLog {
             log.info("Successful sync updated = {} stage(s)", successfulUpdatesCounter);
         if (warningUpdatesCounter.get() != 0)
             log.warn("Error sync update = {} stage(s)", warningUpdatesCounter);
-        log.info("Finish sync script do PayloadDecode to Database");
+        log.info("Finish sync Payload decode script to Database");
     }
 
     private Query getStageQuery() {

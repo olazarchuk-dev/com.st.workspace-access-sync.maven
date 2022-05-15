@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableMongock
-public class WorkspaceSyncApplication {
+public class DecompressPayloadSyncApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WorkspaceSyncApplication.class, args);
+        SpringApplication.run(DecompressPayloadSyncApplication.class, args);
     }
 }
