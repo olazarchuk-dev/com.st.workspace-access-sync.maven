@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableMongock
-public class WorkspaceStageSyncApplication {
+public class WorkspaceSyncApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WorkspaceStageSyncApplication.class, args);
+        SpringApplication.run(WorkspaceSyncApplication.class, args);
     }
 }

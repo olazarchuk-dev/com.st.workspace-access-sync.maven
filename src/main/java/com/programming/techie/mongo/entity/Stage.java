@@ -12,7 +12,7 @@ import java.util.List;
 @Document(collection = "stage")
 @ToString
 @Builder
-public class WorkspaceStage {
+public class Stage {
 
     @Id
     private String id;
@@ -23,7 +23,7 @@ public class WorkspaceStage {
     private String oldid;
     private String owner;
     private String payload;
-    private String payloadDecode;
+    private PayloadDecodeObject payloadDecode;
     private Integer revision;
     private String screenshot;
     private Integer layout;
@@ -31,4 +31,24 @@ public class WorkspaceStage {
     private String title;
     private Long createdAt;
     private Long updatedAt;
+
+    @Data
+    public static class PayloadDecodeObject {
+        private String id;
+        private Instrument instrument;
+        private Long timeInterval;
+        private Boolean isVisible;
+        private Integer index;
+        private Boolean isPlaceHolder;
+        private String symbol;
+        private Long timestamp;
+        private String barType;
+
+        @Data
+        public static class Instrument {
+            private String symbol;
+            private String company;
+            private String exchange;
+        }
+    }
 }

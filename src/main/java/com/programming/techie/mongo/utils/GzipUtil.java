@@ -1,7 +1,5 @@
 package com.programming.techie.mongo.utils;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.io.*;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
@@ -37,18 +35,5 @@ public class GzipUtil {
         }
 
         return decompress.toString();
-    }
-
-    public static String doHandleDecompressPayload(String payload) {
-        String decompressPayload = null;
-        try {
-            if (StringUtils.isNotBlank(payload)) {
-                decompressPayload = toDecompress(payload, "UTF-8");
-            }
-        } catch (IOException e) {
-            e.printStackTrace(); // FIXME
-        }
-
-        return decompressPayload;
     }
 }
